@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SocketTrigger : MonoBehaviour
 {
+    public UnityEvent onTrigger;
+    public UnityEvent onExit;
+    public string targetTag = "Player";
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +21,7 @@ public class SocketTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject.CompareTag(targetTag))
         {
 
             //Make an event
@@ -25,21 +29,24 @@ public class SocketTrigger : MonoBehaviour
             if (player != null)
             {
                 player.EnterBox(transform.position);
-            }
-            Debug.Log("Player entered the box");
 
+                //Event Flag Organizer
+                onTrigger.Invoke();
+            }
         }
          
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.gameObject.CompareTag(targetTag))
         {
-            Debug.Log("Player has left the box");
-            
-
-            //Also need an event
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.isInBox = false;
+                onExit.Invoke();
+            }
         }
     }
 }

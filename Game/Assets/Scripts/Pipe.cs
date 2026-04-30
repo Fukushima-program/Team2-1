@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    [SerializeField]
     public float InteractionDis = 5.0f;
     public PlayerController player;
-
+    public GameObject pipe;
     public Rigidbody rb;
     public Vector3 offset = new Vector3(0.0f, 0.0f, 0.0f);
-    public bool isFollowing = false;
+    public WaterWheel wheel;
+
+    private bool isFollowing = false;
+    private bool isConnected = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +24,6 @@ public class Pipe : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.Log("Player not assigned");
             return;
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);
@@ -31,10 +32,29 @@ public class Pipe : MonoBehaviour
             rb.useGravity = false;
             isFollowing = true;
         }
+        if(Input.GetMouseButtonDown(1))
+        {
+            rb.useGravity = true;
+            isFollowing = false;
+
+            float distance1 = Vector3.Distance(transform.position, pipe.transform.position);
+            if(distance1 < 3)
+            {
+                Vector3 newPos = new Vector3(8.9279f, -1.462f, 0.132f);
+                transform.position = newPos;
+                rb.useGravity = false;
+                Debug.Log("Pipe Connected");
+                isConnected = true;
+            }
+
+        }
+        if (isConnected)
+        {
+            wheel.spin = true;
+        }
         if (isFollowing)
         {
             transform.position = player.transform.position + offset;
-            Debug.Log(offset);
         }
     }
 

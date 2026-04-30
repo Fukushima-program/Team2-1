@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float maxFallSpeed = 20.0f;
     private float gravity = 60.0f;
 
-    bool isInBox = false;
+    public bool isInBox = false;
     Vector3 boxPosition;
     Vector3 pipePosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
