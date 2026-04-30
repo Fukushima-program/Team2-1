@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     bool isInBox = false;
     Vector3 boxPosition;
+    Vector3 pipePosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
