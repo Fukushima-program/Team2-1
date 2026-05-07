@@ -80,4 +80,10 @@ public class PlayerController : MonoBehaviour
     {
         isInBox = false;
     }
+
+    public void AddExternalForce(Vector3 force)
+    {
+        controller.Move(force * Time.deltaTime);
+    }
+
 }
