@@ -26,9 +26,10 @@ public class SocketTrigger : MonoBehaviour
 
             //Make an event
             PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
+            if (player != null && player.canEnterBox)
             {
                 player.EnterBox(transform.position);
+                player.speed = 0.0f;
 
                 //Event Flag Organizer
                 onTrigger.Invoke();

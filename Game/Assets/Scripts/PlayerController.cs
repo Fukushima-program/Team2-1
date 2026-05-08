@@ -3,17 +3,21 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 5f;
     private CharacterController controller;
     private float horizontalSpeed;
     private float verticalSpeed;
     private float maxFallSpeed = 20.0f;
     private float gravity = 60.0f;
+    private Transform activeFloor;
+    private Vector3 activeLocalFloorPoint;
+    private Vector3 activeGlobalFloorPoint;
+    private int airFrame;
+    private float boxTimer;
 
+    public float speed = 5f;
+    public bool canEnterBox = true;
     public bool isInBox = false;
     Vector3 boxPosition;
-    Vector3 pipePosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +35,8 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
+        boxTimer += Time.deltaTime;
+        if (boxTimer > 1.2f) canEnterBox = true;
         UpdateGravity();
         UpdateDirection();
         UpdateMovement();
@@ -52,15 +58,33 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMovement()
     {
-        Vector3 move = new Vector3(horizontalSpeed, verticalSpeed, 0);
+        Vector3 move = new Vector3(horizontalSpeed, verticalSpeed, 0f);
+
+        if (activeFloor != null)
+        {
+            Vector3 newGlobalFloorPoint = activeFloor.TransformPoint(activeLocalFloorPoint);
+            Vector3 moveDistance = newGlobalFloorPoint - activeGlobalFloorPoint;
+            controller.Move(moveDistance);
+        }
+        airFrame++;
+        if(airFrame > 2)
+        {
+            activeFloor = null;
+        }
         controller.Move(move * Time.deltaTime);
+        
+        if(activeFloor != null)
+        {
+            activeGlobalFloorPoint = transform.position;
+            activeLocalFloorPoint = activeFloor.InverseTransformPoint(transform.position);
+        }
     }
 
     private void UpdateGravity()
     {
         if (controller.isGrounded)
         {
-            verticalSpeed = -gravity * Time.deltaTime;
+            verticalSpeed = -2f;
         }
         else
         {
@@ -71,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
     public void EnterBox(Vector3 pos)
     {
+        boxTimer = 0;
         isInBox = true;
         boxPosition = pos;
         transform.position = boxPosition;
@@ -79,6 +104,8 @@ public class PlayerController : MonoBehaviour
     private void ExitBox()
     {
         isInBox = false;
+        speed = 5.0f;
+                canEnterBox = false;
     }
 
     public void AddExternalForce(Vector3 force)
@@ -86,4 +113,17 @@ public class PlayerController : MonoBehaviour
         controller.Move(force * Time.deltaTime);
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        FloorCheck(hit);
+    }
+
+    private void FloorCheck(ControllerColliderHit hit)
+    {
+        if(hit.normal.y > 0.9f)
+        {
+            activeFloor = hit.collider.transform;
+            airFrame = 0;
+        }
+    }
 }
