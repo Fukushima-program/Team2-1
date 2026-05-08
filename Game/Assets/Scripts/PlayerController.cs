@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         boxTimer += Time.deltaTime;
-        if (boxTimer > 1.2f) canEnterBox = true;
+        if (boxTimer > 0.4f) canEnterBox = true;
         UpdateGravity();
         UpdateDirection();
         UpdateMovement();

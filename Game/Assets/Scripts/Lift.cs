@@ -8,7 +8,7 @@ public class Lift : MonoBehaviour
     public float speed = 2.0f;
 
     private Transform target;
-    private bool isInLift = true;
+    private bool canMove = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,18 +18,31 @@ public class Lift : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
+        if (canMove)
         {
-            if (target == targetA)
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, target.position) < 0.1f)
             {
-                target = targetB;
-            }
-            else
-            {
-                target = targetA;
+                if (target == targetA)
+                {
+                    target = targetB;
+                }
+                else
+                {
+                    target = targetA;
+                }
             }
         }
+    }
+
+    public void StartMove()
+    {
+        canMove = true;
+    }
+
+    public void StopMove()
+    {
+        canMove = false;
     }
 
     

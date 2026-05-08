@@ -21,10 +21,8 @@ public class SocketTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag(targetTag))
+        if(other.gameObject.CompareTag("Player"))
         {
-
-            //Make an event
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null && player.canEnterBox)
             {
@@ -40,7 +38,7 @@ public class SocketTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(targetTag))
+        if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
