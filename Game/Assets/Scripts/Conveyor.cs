@@ -5,32 +5,44 @@ public class Conveyor : MonoBehaviour
 {
 
     public float ConveyorSpeed = 3.0f;
-    public bool isConveyor = false;
+
+    //public bool isConveyor = false;
+
+    public Elek elek;
+
+    public float acceleration = 5.0f;
 
     private void OnTriggerStay(Collider other)
     {
-        if (!isConveyor) return;
+        if (elek == null) return;
+        if (!elek.isElektric) return;
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null)
         {
-            rb.AddForce(Vector3.right * ConveyorSpeed, ForceMode.VelocityChange);
+            Vector3 targetVelocity = Vector3.right * ConveyorSpeed;
+
+            rb.linearVelocity = Vector3.Lerp(
+                rb.linearVelocity,
+                new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.z),
+                acceleration * Time.deltaTime
+            );
         }
 
         PlayerController player = other.GetComponent<PlayerController>();
-        if (player != null)
+        if (player != null && !player.isInBox)
         {
             player.AddExternalForce(Vector3.right * ConveyorSpeed);
         }
     }
 
-    public void StartConveyor()
-    {
-        isConveyor = true;
-    }
+    //public void StartConveyor()
+    //{
+    //    isConveyor = true;
+    //}
 
-    public void StopConveyor()
-    {
-        isConveyor = false;
-    }
+    //public void StopConveyor()
+    //{
+    //    isConveyor = false;
+    //}
 }

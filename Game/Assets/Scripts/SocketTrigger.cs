@@ -6,7 +6,9 @@ public class SocketTrigger : MonoBehaviour
     public UnityEvent onTrigger;
     public UnityEvent onExit;
     public string targetTag = "Player";
-    
+
+    public Elek elek;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,29 +23,35 @@ public class SocketTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
+
             if (player != null && player.canEnterBox)
             {
                 player.EnterBox(transform.position);
                 player.speed = 0.0f;
 
-                //Event Flag Organizer
+                if (elek != null)
+                {
+                    elek.PowerOn();
+                }
+
                 onTrigger.Invoke();
             }
         }
-         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(targetTag))
         {
             PlayerController player = other.GetComponent<PlayerController>();
+
             if (player != null)
             {
                 player.isInBox = false;
+
                 onExit.Invoke();
             }
         }
