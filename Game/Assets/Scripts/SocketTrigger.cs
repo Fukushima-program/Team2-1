@@ -1,18 +1,16 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class SocketTrigger : MonoBehaviour
 {
-    public UnityEvent onTrigger;
-    public UnityEvent onExit;
     public string targetTag = "Player";
 
-    public Elek elek;
+    private Elek elek;
+    public GameObject elekObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        elek = elekObject.GetComponent<Elek>();
     }
 
     // Update is called once per frame
@@ -36,8 +34,6 @@ public class SocketTrigger : MonoBehaviour
                 {
                     elek.PowerOn();
                 }
-
-                onTrigger.Invoke();
             }
         }
     }
@@ -51,8 +47,6 @@ public class SocketTrigger : MonoBehaviour
             if (player != null)
             {
                 player.isInBox = false;
-
-                onExit.Invoke();
             }
         }
     }
