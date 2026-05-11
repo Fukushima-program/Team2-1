@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 activeGlobalFloorPoint;
     private int airFrame;
     private float boxTimer;
-
+ 
+    public float Gage = 100.0f;
+    
     public float speed = 5f;
     public bool canEnterBox = true;
     public bool isInBox = false;
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isInBox)
         {
+
             if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 ExitBox();
@@ -112,6 +115,29 @@ public class PlayerController : MonoBehaviour
     {
         controller.Move(force * Time.deltaTime);
     }
+
+    public void PlayerGage(float gage)
+    {
+            Gage -= gage;   
+        
+            if( Gage > 100)
+        {
+            Gage = 100;
+        }
+    }
+
+    public void PlayerCharge(float charge)
+    {
+        Gage += charge;
+
+        if (Gage > 100)
+        {
+            Gage = 100;
+        }
+
+
+    }
+
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
