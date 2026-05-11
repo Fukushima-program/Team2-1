@@ -35,6 +35,7 @@ public class SocketTrigger : MonoBehaviour
                 if (elek != null)
                 {
                     elek.PowerOn();
+                    player.PlayerGage(10);
                 }
 
                 onTrigger.Invoke();
