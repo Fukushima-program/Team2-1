@@ -17,9 +17,11 @@ public class FloorSpin : MonoBehaviour
     void Update()
     {
         if (elek == null) return;
-        if (!elek.isElektric) return;
 
-        transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+        if (elek.isConnected)
+        {
+            transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+        }
 
     }
 

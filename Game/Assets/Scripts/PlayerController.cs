@@ -12,14 +12,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 activeLocalFloorPoint;
     private Vector3 activeGlobalFloorPoint;
     private int airFrame;
-    private float boxTimer;
+    private SocketTrigger socket;
  
     public float Gage = 100.0f;
     
     public float speed = 5f;
-    public bool canEnterBox = true;
     public bool isInBox = false;
-    Vector3 boxPosition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,8 +37,6 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
-        boxTimer += Time.deltaTime;
-        if (boxTimer > 0.4f) canEnterBox = true;
         UpdateGravity();
         UpdateDirection();
         UpdateMovement();
@@ -53,7 +50,7 @@ public class PlayerController : MonoBehaviour
         if (direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = targetRotation * Quaternion.Euler(90, 0, 0);
+            transform.rotation = targetRotation;
         }
 
         horizontalSpeed = horizontal * speed;
@@ -96,19 +93,18 @@ public class PlayerController : MonoBehaviour
         verticalSpeed = Mathf.Max(verticalSpeed, -maxFallSpeed);
     }
 
-    public void EnterBox(Vector3 pos)
+    public void EnterBox(Transform socketTransform)
     {
-        boxTimer = 0;
         isInBox = true;
-        boxPosition = pos;
-        transform.position = boxPosition;
+        Vector3 pos = socketTransform.position;
+        transform.position = new Vector3(pos.x, pos.y + 0.2f, pos.z);
+        transform.rotation = socketTransform.rotation;
     }
 
     private void ExitBox()
     {
         isInBox = false;
         speed = 5.0f;
-                canEnterBox = false;
     }
 
     public void AddExternalForce(Vector3 force)

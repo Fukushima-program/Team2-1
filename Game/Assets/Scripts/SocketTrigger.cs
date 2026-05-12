@@ -7,6 +7,8 @@ public class SocketTrigger : MonoBehaviour
     private Elek elek;
     public GameObject elekObject;
 
+    public PlayerController currentPlayer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,26 +18,25 @@ public class SocketTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float distance = Vector3.Distance(currentPlayer.transform.position, transform.position);
+        if (distance < 0.5f && Input.GetKeyDown(KeyCode.E))
+        {
+            currentPlayer.EnterBox(transform);
+            currentPlayer.speed = 0.0f;
+
+            if (elek != null)
+            {
+                elek.PowerOn();
+                currentPlayer.PlayerGage(10);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(targetTag))
         {
-            PlayerController player = other.GetComponent<PlayerController>();
-
-            if (player != null && player.canEnterBox)
-            {
-                player.EnterBox(transform.position);
-                player.speed = 0.0f;
-
-                if (elek != null)
-                {
-                    elek.PowerOn();
-                    player.PlayerGage(10);
-                }
-            }
+            currentPlayer = other.GetComponent<PlayerController>();
         }
     }
 
@@ -43,11 +44,12 @@ public class SocketTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag(targetTag))
         {
-            PlayerController player = other.GetComponent<PlayerController>();
+            currentPlayer = other.GetComponent<PlayerController>();
 
-            if (player != null)
+            if (currentPlayer != null)
             {
-                player.isInBox = false;
+                currentPlayer.isInBox = false;
+                elek.isConnected = false;  
             }
         }
     }

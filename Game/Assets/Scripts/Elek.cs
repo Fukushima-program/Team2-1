@@ -4,10 +4,11 @@ public class Elek : MonoBehaviour
 {
 
     public bool isElektric = false;
+    public bool isConnected = false;
 
     public float ElekTime = 10.0f;
 
-    private float timer = 0.0f;
+    public float timer = 0.0f;
 
     void Update()
     {
@@ -26,8 +27,14 @@ public class Elek : MonoBehaviour
     public void PowerOn()
     {
         isElektric = true;
+        isConnected = true;
 
         timer = ElekTime;
+    }
+
+    public void Disconnected()
+    {
+        isConnected = false;
     }
 
     public void PowerOff()

@@ -7,12 +7,15 @@ public class Lever : MonoBehaviour
     private Elek myElektric;
     private float speed = 50f;
     private float currentZ;
+    private float targetZ;
     private bool startLever = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         electric = elekObject.GetComponent<Elek>();
-        myElektric = this.GetComponent<Elek>();
+        myElektric = GetComponent<Elek>();
+        targetZ = 30f;
     }
     
     // Update is called once per frame
@@ -20,22 +23,31 @@ public class Lever : MonoBehaviour
     {
         if (myElektric.isElektric && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Works!");
             startLever = true;
+
+            if (targetZ == 30f)
+            {
+                targetZ = -30f;
+            }
+            else
+            {
+                targetZ = 30f;
+            }
         }
 
-        if(startLever) {
+        if (startLever)
+        {
             Vector3 rot = transform.eulerAngles;
             currentZ = rot.z;
             if (currentZ > 180) currentZ -= 360;
 
-            currentZ = Mathf.MoveTowards(currentZ, -30f, speed * Time.deltaTime);
-            transform.eulerAngles = new Vector3(rot.x, rot.y ,currentZ);
+            currentZ = Mathf.MoveTowards(currentZ, targetZ, speed * Time.deltaTime);
+            transform.eulerAngles = new Vector3(rot.x, rot.y, currentZ);
 
-            if (currentZ <= -30f)
+            if (Mathf.Abs(currentZ - targetZ) < 0.1f)
             {
                 startLever = false;
-                electric.isElektric = true;
+                electric.PowerOn();
             }
         }
     }

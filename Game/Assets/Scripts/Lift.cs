@@ -8,43 +8,66 @@ public class Lift : MonoBehaviour
     public float speed = 2.0f;
 
     private Transform target;
-    private bool canMove = false;
+    private Elek elek;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = targetB; 
+        elek = GetComponent<Elek>();  
     }
 
     void FixedUpdate()
     {
-        if (canMove)
+        if (!elek.isElektric) return;
+
+        if(target == null)
+        {
+            if (Vector3.Distance(transform.position, targetA.position) < 0.1f)
+            {
+                target = targetB;
+            }
+            else
+            {
+                target = targetA;
+            }
+        }
+
+        if (Vector3.Distance(transform.position, target.position) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, target.position) < 0.1f)
-            {
-                if (target == targetA)
-                {
-                    target = targetB;
-                }
-                else
-                {
-                    target = targetA;
-                }
-            }
+        }
+        else
+        {
+            transform.position = target.position;
+
+            target = null;
+            elek.PowerOff();
+        }
+
+    }
+
+    public void ActivateLift()
+    {
+        if (Vector3.Distance(transform.position, targetA.position) < 0.1f)
+        {
+            target = targetB;
+        }
+        else
+        {
+            target = targetA;
         }
     }
 
-    public void StartMove()
-    {
-        canMove = true;
-    }
+    //public void StartMove()
+    //{
+    //    canMove = true;
+    //}
 
-    public void StopMove()
-    {
-        canMove = false;
-    }
+    //public void StopMove()
+    //{
+    //    canMove = false;
+    //}
 
     
-
+    
 }
