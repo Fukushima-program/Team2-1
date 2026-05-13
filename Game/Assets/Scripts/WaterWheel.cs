@@ -6,8 +6,8 @@ public class WaterWheel : MonoBehaviour
 
 
     private float spinSpeed = -150.0f;
-    //public GameObject elektype;
-    //private Elek elek;
+    public GameObject elektype;
+    private Elek elek;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +20,12 @@ public class WaterWheel : MonoBehaviour
         if(spin)
         {
             transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+            elek = elektype.GetComponent<Elek>();
+            if (elek == null)
+            {
+                return;
+            }
+            elek.isElektric = true;
         }
     }
 }

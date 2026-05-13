@@ -9,8 +9,9 @@ public class Pipe : MonoBehaviour
     public GameObject pipe;
     public Rigidbody rb;
     public Vector3 offset = new Vector3(0.0f, 0.0f, 0.0f);
-    public WaterWheel wheel;
 
+    public WaterWheel wheel;
+    public WaterFlow water;
     private bool isFollowing = false;
     private bool isConnected = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +28,7 @@ public class Pipe : MonoBehaviour
             return;
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if(distance < InteractionDis && Input.GetMouseButtonDown(0))
+        if(distance < InteractionDis && Input.GetMouseButtonDown(0) && !isConnected)
         {
             rb.useGravity = false;
             isFollowing = true;
@@ -51,6 +52,7 @@ public class Pipe : MonoBehaviour
         if (isConnected)
         {
             wheel.spin = true;
+            water.StopFlow();
         }
         if (isFollowing)
         {
