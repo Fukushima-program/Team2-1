@@ -9,6 +9,7 @@ public class Lever : MonoBehaviour
     private float currentZ;
     private float targetZ;
     private bool startLever = false;
+    public PlayerController player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +22,8 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myElektric.isElektric && Input.GetMouseButtonDown(0))
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (myElektric.isElektric && Input.GetMouseButtonDown(0) && distance < 0.8f)
         {
             startLever = true;
 

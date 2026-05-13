@@ -40,7 +40,7 @@ public class Pipe : MonoBehaviour
             float distance1 = Vector3.Distance(transform.position, pipe.transform.position);
             if(distance1 < 3)
             {
-                Vector3 newPos = new Vector3(8.9279f, -1.462f, 0.132f);
+                Vector3 newPos = new Vector3(pipe.transform.position.x + 2f, pipe.transform.position.y, pipe.transform.position.z);
                 transform.position = newPos;
                 rb.useGravity = false;
                 Debug.Log("Pipe Connected");

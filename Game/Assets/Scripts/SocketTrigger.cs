@@ -19,7 +19,7 @@ public class SocketTrigger : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(currentPlayer.transform.position, transform.position);
-        if (distance < 0.5f && Input.GetKeyDown(KeyCode.E))
+        if (distance < 0.5f && Input.GetMouseButtonDown(0))
         {
             currentPlayer.EnterBox(transform);
             currentPlayer.speed = 0.0f;

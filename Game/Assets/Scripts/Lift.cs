@@ -9,6 +9,7 @@ public class Lift : MonoBehaviour
 
     private Transform target;
     private Elek elek;
+    private float stopTimer = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +20,12 @@ public class Lift : MonoBehaviour
     void FixedUpdate()
     {
         if (!elek.isElektric) return;
+
+        if (stopTimer > 0f)
+        {
+            stopTimer -= Time.deltaTime;
+            return;
+        }
 
         if(target == null)
         {
@@ -41,6 +48,7 @@ public class Lift : MonoBehaviour
             transform.position = target.position;
 
             target = null;
+            stopTimer = 2f;
             elek.PowerOff();
         }
 
