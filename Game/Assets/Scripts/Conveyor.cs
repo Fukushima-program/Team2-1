@@ -14,8 +14,8 @@ public class Conveyor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (elek == null) return;
-        if (!elek.isElektric) return;
+        /*if (elek == null) return;
+        if (!elek.isElektric) return;*/
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null)
@@ -29,10 +29,16 @@ public class Conveyor : MonoBehaviour
             );
         }
 
+        Vector3 objPos = other.transform.position;
+        objPos.x += ConveyorSpeed;
+        other.transform.position = objPos;
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null && !player.isInBox)
         {
+            float keep = ConveyorSpeed;
+            ConveyorSpeed = 3;
             player.AddExternalForce(Vector3.right * ConveyorSpeed);
+            ConveyorSpeed = keep;
         }
     }
 
