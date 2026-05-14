@@ -13,9 +13,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 activeGlobalFloorPoint;
     private int airFrame;
     private SocketTrigger socket;
-    public Transform spawnPoint;
-    private byte IdlingTimer;
-    private Animator animator;
  
     public float Gage = 100.0f;
     
@@ -26,8 +23,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Spawn();
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,26 +49,11 @@ public class PlayerController : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-            direction.x *= -1;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = targetRotation;
         }
-        if (horizontal != 0)
-        {
-            IdlingTimer = 0;
-            animator.SetBool("Walking", true);
-        }
-        else
-        {
-            animator.SetBool("Walking", false);
-            IdlingTimer++;
-            if (IdlingTimer > 120)
-            {
-                animator.SetTrigger("Idring");
-            }
-        }
 
-            horizontalSpeed = horizontal * speed;
+        horizontalSpeed = horizontal * speed;
     }
 
     private void UpdateMovement()
@@ -167,21 +147,5 @@ public class PlayerController : MonoBehaviour
             activeFloor = hit.collider.transform;
             airFrame = 0;
         }
-    }
-
-    private void Spawn()
-    {
-        verticalSpeed = 0f;
-        horizontalSpeed = 0f;
-
-
-        Warp(spawnPoint.position);
-    }
-
-    public void Warp(Vector3 position)
-    {
-        controller.enabled = false;
-        transform.position = position;
-        controller.enabled = true;
     }
 }

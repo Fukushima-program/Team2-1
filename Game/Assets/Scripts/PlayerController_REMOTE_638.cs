@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 activeGlobalFloorPoint;
     private int airFrame;
     private SocketTrigger socket;
-    public Transform spawnPoint;
+
     private byte IdlingTimer;
     private Animator animator;
  
@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Spawn();
         animator = GetComponent<Animator>();
     }
 
@@ -167,21 +166,5 @@ public class PlayerController : MonoBehaviour
             activeFloor = hit.collider.transform;
             airFrame = 0;
         }
-    }
-
-    private void Spawn()
-    {
-        verticalSpeed = 0f;
-        horizontalSpeed = 0f;
-
-
-        Warp(spawnPoint.position);
-    }
-
-    public void Warp(Vector3 position)
-    {
-        controller.enabled = false;
-        transform.position = position;
-        controller.enabled = true;
     }
 }

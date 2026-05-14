@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 activeGlobalFloorPoint;
     private int airFrame;
     private SocketTrigger socket;
+<<<<<<< HEAD
     public Transform spawnPoint;
+=======
+
     private byte IdlingTimer;
     private Animator animator;
+>>>>>>> a3ce8e21dc4ef0b294b090af84a0034296ff36eb
  
     public float Gage = 100.0f;
     
@@ -26,8 +30,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+<<<<<<< HEAD
         Spawn();
+=======
         animator = GetComponent<Animator>();
+>>>>>>> a3ce8e21dc4ef0b294b090af84a0034296ff36eb
     }
 
     // Update is called once per frame
@@ -173,7 +180,6 @@ public class PlayerController : MonoBehaviour
     {
         verticalSpeed = 0f;
         horizontalSpeed = 0f;
-
 
         Warp(spawnPoint.position);
     }
