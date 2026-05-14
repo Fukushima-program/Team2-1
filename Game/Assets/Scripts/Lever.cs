@@ -22,8 +22,10 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null) return;
+    
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (myElektric.isElektric && Input.GetMouseButtonDown(0) && distance < 0.8f)
+        if (myElektric.isElektric && Input.GetMouseButtonDown(0) && distance < 1.2f)
         {
             startLever = true;
 

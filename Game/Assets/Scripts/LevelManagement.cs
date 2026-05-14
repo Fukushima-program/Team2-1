@@ -77,7 +77,7 @@ public class LevelManagement : MonoBehaviour
 
     private void SelectStage()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
             switch (currentIndex)
             {

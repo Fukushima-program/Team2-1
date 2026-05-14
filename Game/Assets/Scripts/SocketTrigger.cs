@@ -18,6 +18,8 @@ public class SocketTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentPlayer == null) return;
+
         float distance = Vector3.Distance(currentPlayer.transform.position, transform.position);
         if (distance < 0.5f && Input.GetMouseButtonDown(0))
         {

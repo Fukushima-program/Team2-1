@@ -5,11 +5,14 @@ public class Lift : MonoBehaviour
 {
     public Transform targetA;
     public Transform targetB;
-    public float speed = 2.0f;
 
+    private float currentSpeed = 0f;
+    private float acceleration = 2f;
+    private float speed = 2.0f;
     private Transform target;
     private Elek elek;
     private float stopTimer = 0f;
+    private bool isMoving = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +22,6 @@ public class Lift : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!elek.isElektric) return;
 
         if (stopTimer > 0f)
         {
@@ -27,29 +29,24 @@ public class Lift : MonoBehaviour
             return;
         }
 
-        if(target == null)
+        if(elek.isElektric && !isMoving && stopTimer <= 0f)
         {
-            if (Vector3.Distance(transform.position, targetA.position) < 0.1f)
-            {
-                target = targetB;
-            }
-            else
-            {
-                target = targetA;
-            }
+            ActivateLift();
+            elek.PowerOff();
         }
 
-        if (Vector3.Distance(transform.position, target.position) > 0.1f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        else
+        if (!isMoving) return;
+
+        currentSpeed = Mathf.MoveTowards(currentSpeed, speed, Time.fixedDeltaTime * acceleration);
+
+        transform.position = Vector3.MoveTowards(transform.position, target.position, currentSpeed * Time.fixedDeltaTime);
+
+        if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             transform.position = target.position;
-
-            target = null;
+            currentSpeed = 0;
+            isMoving = false;
             stopTimer = 2f;
-            elek.PowerOff();
         }
 
     }
@@ -64,6 +61,7 @@ public class Lift : MonoBehaviour
         {
             target = targetA;
         }
+        isMoving = true;
     }
 
     //public void StartMove()
