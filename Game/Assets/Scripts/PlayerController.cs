@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Spawn();
         animator = GetComponent<Animator>();
+        Spawn();
     }
 
     // Update is called once per frame
