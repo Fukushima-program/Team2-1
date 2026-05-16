@@ -10,12 +10,15 @@ public class Lever : MonoBehaviour
     private float targetZ;
     private bool startLever = false;
     public PlayerController player;
+    private bool sePlaying = false;
+    private WorldSE se;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         electric = elekObject.GetComponent<Elek>();
         myElektric = GetComponent<Elek>();
+        se = GetComponent<WorldSE>();
         targetZ = 30f;
     }
     
@@ -28,6 +31,12 @@ public class Lever : MonoBehaviour
         if (myElektric.isElektric && Input.GetMouseButtonDown(0) && distance < 1.2f)
         {
             startLever = true;
+
+            if(!sePlaying)
+            {
+                se.Play(AudioManager.Instance.leverSE);
+                sePlaying = true;
+            }
 
             if (targetZ == 30f)
             {
@@ -50,6 +59,8 @@ public class Lever : MonoBehaviour
 
             if (Mathf.Abs(currentZ - targetZ) < 0.1f)
             {
+                se.Stop();
+                sePlaying = false;
                 startLever = false;
                 electric.PowerOn();
             }

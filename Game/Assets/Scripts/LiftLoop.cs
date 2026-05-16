@@ -9,12 +9,15 @@ public class LiftLoop : MonoBehaviour
     private Transform target;
     private Elek elek;
     private float stopTimer = 0f;
+    private bool sePlaying = false;
+    private WorldSE se;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         target = targetB;
         elek = GetComponent<Elek>();
+        se = GetComponent<WorldSE>();
     }
 
     void FixedUpdate()
@@ -26,9 +29,18 @@ public class LiftLoop : MonoBehaviour
                 stopTimer -= Time.deltaTime;
                 return;
             }
+
+            if(!sePlaying)
+            {
+                se.Play(AudioManager.Instance.liftSE);
+                sePlaying = true;
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, target.position) < 0.1f)
             {
+                se.Stop();
+                sePlaying = false;
                 if (target == targetA)
                 {
                     target = targetB;

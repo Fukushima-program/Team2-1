@@ -3,20 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class UI_Script : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Load(string sceneName)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void StartGame()
-    {
-        SceneManager.LoadScene("LevelSelect");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
 
 

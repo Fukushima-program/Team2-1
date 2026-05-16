@@ -13,11 +13,13 @@ public class Lift : MonoBehaviour
     private Elek elek;
     private float stopTimer = 0f;
     private bool isMoving = false;
+    private WorldSE se;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         elek = GetComponent<Elek>();  
+        se = GetComponent<WorldSE>();
     }
 
     void FixedUpdate()
@@ -47,12 +49,14 @@ public class Lift : MonoBehaviour
             currentSpeed = 0;
             isMoving = false;
             stopTimer = 2f;
+            se.Stop();
         }
 
     }
 
     public void ActivateLift()
     {
+        Debug.Log("Lift Activated");
         if (Vector3.Distance(transform.position, targetA.position) < 0.1f)
         {
             target = targetB;
@@ -62,18 +66,6 @@ public class Lift : MonoBehaviour
             target = targetA;
         }
         isMoving = true;
+       se.Play(AudioManager.Instance.liftSE);
     }
-
-    //public void StartMove()
-    //{
-    //    canMove = true;
-    //}
-
-    //public void StopMove()
-    //{
-    //    canMove = false;
-    //}
-
-    
-    
 }

@@ -7,15 +7,18 @@ public class LevelManagement : MonoBehaviour
 {
     public RectTransform[] stages;
     public RectTransform cursor;
+    public string[] sceneName;
 
     public float cursorSpeed = 10f;
 
     private int currentIndex = 0;
     private Vector3[] originalScale;
+    private UI_Script ui;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ui = FindFirstObjectByType<UI_Script>();
         originalScale = new Vector3[stages.Length];
         for (int i = 0; i < stages.Length; i++)
         {
@@ -79,18 +82,7 @@ public class LevelManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
-            switch (currentIndex)
-            {
-                case 0:
-                    SceneManager.LoadScene("Stage1");
-                    break;
-                case 1:
-                    SceneManager.LoadScene("Stage2");
-                    break;
-                case 2:
-                    SceneManager.LoadScene("Stage3");
-                    break;
-            }
+            ui.Load(sceneName[currentIndex]);
         }
     }
 }

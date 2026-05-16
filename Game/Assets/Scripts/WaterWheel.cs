@@ -19,7 +19,7 @@ public class WaterWheel : MonoBehaviour
     {
         if(spin)
         {
-            transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.back * spinSpeed * Time.deltaTime);
             elek = elektype.GetComponent<Elek>();
             if (elek == null)
             {

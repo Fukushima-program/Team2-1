@@ -3,18 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class GoalCheck : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private UI_Script ui;
+
     void Start()
     {
-        
+        ui = FindAnyObjectByType<UI_Script>();    
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
 
@@ -28,7 +22,7 @@ public class GoalCheck : MonoBehaviour
     
     private void Goal()
     {
-        SceneManager.LoadScene("Clear");
+       ui.Load("Clear");
     }
 
 }

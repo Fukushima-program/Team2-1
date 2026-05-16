@@ -16,17 +16,21 @@ public class PlayerController : MonoBehaviour
     public Transform spawnPoint;
     private byte IdlingTimer;
     private Animator animator;
+    private float stepTimer;
  
     public float Gage = 100.0f;
     
     public float speed = 5f;
     public bool isInBox = false;
+    private int stepIndex;
+    private WorldSE se;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        se = GetComponent<WorldSE>();
         Spawn();
     }
 
@@ -62,10 +66,24 @@ public class PlayerController : MonoBehaviour
         {
             IdlingTimer = 0;
             animator.SetBool("Walking", true);
+            
+            stepTimer -= Time.deltaTime;
+            if(stepTimer <= 0f)
+            {
+
+                se.PlayOneShot(AudioManager.Instance.stepSE[stepIndex]);
+                stepIndex++;
+                if (stepIndex >= AudioManager.Instance.stepSE.Length)
+                {
+                    stepIndex = 0;
+                }
+                stepTimer = 0.2f;
+            }
         }
         else
         {
             animator.SetBool("Walking", false);
+            stepTimer = 0f;
             IdlingTimer++;
             if (IdlingTimer > 120)
             {
@@ -100,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateGravity()
+    private void UpdateGravity() 
     {
         if (controller.isGrounded)
         {

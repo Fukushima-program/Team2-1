@@ -21,7 +21,7 @@ public class SocketTrigger : MonoBehaviour
         if (currentPlayer == null) return;
 
         float distance = Vector3.Distance(currentPlayer.transform.position, transform.position);
-        if (distance < 0.5f && Input.GetMouseButtonDown(0))
+        if (distance < 0.8f && Input.GetMouseButtonDown(0))
         {
             currentPlayer.EnterBox(transform);
             currentPlayer.speed = 0.0f;
