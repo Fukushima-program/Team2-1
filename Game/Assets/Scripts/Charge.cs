@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class Charge : MonoBehaviour
 {
+    private WorldSE se;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        se = GetComponent<WorldSE>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-
+        se.PlayOneShot(AudioManager.Instance.healSE);
         PlayerController player = other.GetComponent<PlayerController>();
 
 

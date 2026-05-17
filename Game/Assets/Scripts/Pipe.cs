@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    public float InteractionDis = 5.0f;
+    public float InteractionDis = 2.0f;
     public PlayerController player;
     public GameObject pipe;
     public Rigidbody rb;
@@ -14,10 +14,13 @@ public class Pipe : MonoBehaviour
     public WaterFlow water;
     private bool isFollowing = false;
     private bool isConnected = false;
+
+    private WorldSE se;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        se = GetComponent<WorldSE>();
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class Pipe : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if(distance < InteractionDis && Input.GetMouseButtonDown(0) && !isConnected)
         {
+            se.PlayOneShot(AudioManager.Instance.pipeSE);
             rb.useGravity = false;
             isFollowing = true;
         }
@@ -44,13 +48,13 @@ public class Pipe : MonoBehaviour
                 Vector3 newPos = new Vector3(pipe.transform.position.x + 2f, pipe.transform.position.y, pipe.transform.position.z);
                 transform.position = newPos;
                 rb.useGravity = false;
-                Debug.Log("Pipe Connected");
                 isConnected = true;
             }
 
         }
         if (isConnected)
         {
+            se.Play(AudioManager.Instance.pipeSE);
             wheel.spin = true;
             water.StopFlow();
         }

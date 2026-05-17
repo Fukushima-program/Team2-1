@@ -32,7 +32,7 @@ public class LiftLoop : MonoBehaviour
 
             if(!sePlaying)
             {
-                se.Play(AudioManager.Instance.liftSE);
+                se.Play(AudioManager.Instance.liftSE, true);
                 sePlaying = true;
             }
 

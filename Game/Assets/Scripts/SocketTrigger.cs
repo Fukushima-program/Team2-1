@@ -9,10 +9,13 @@ public class SocketTrigger : MonoBehaviour
 
     public PlayerController currentPlayer;
 
+    private WorldSE se;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         elek = elekObject.GetComponent<Elek>();
+        se = GetComponent<WorldSE>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class SocketTrigger : MonoBehaviour
         float distance = Vector3.Distance(currentPlayer.transform.position, transform.position);
         if (distance < 0.8f && Input.GetMouseButtonDown(0))
         {
+            se.Play(AudioManager.Instance.socketSE);
             currentPlayer.EnterBox(transform);
             currentPlayer.speed = 0.0f;
 
