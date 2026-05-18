@@ -1,13 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController controller;
-    private float horizontalSpeed;
-    private float verticalSpeed;
+    //private CharacterController controller;
+    //private float horizontalSpeed;
+    //private float verticalSpeed;
     private float maxFallSpeed = 20.0f;
-    private float gravity = 60.0f;
+    private float gravity = 6.0f;
     private Transform activeFloor;
     private Vector3 activeLocalFloorPoint;
     private Vector3 activeGlobalFloorPoint;
@@ -24,13 +23,21 @@ public class PlayerController : MonoBehaviour
     public bool isInBox = false;
     private int stepIndex;
     private WorldSE se;
+    private Rigidbody rb;
+    public float horizontalVelocity;
+    public float verticalVelocity;
+    public bool onGround;
+
+    [Header("RayCast to Ground")]
+    public Transform groundCheck;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         se = GetComponent<WorldSE>();
+        rb=GetComponent<Rigidbody>();
         Spawn();
     }
 
@@ -49,6 +56,10 @@ public class PlayerController : MonoBehaviour
         UpdateGravity();
         UpdateDirection();
         UpdateMovement();
+        rb.linearVelocity = new Vector3(horizontalVelocity, verticalVelocity, 0f);
+        horizontalVelocity = 0;
+        verticalVelocity = 0;
+        onGround = false;
     }
 
     private void UpdateDirection()
@@ -71,13 +82,13 @@ public class PlayerController : MonoBehaviour
             if(stepTimer <= 0f)
             {
 
-                se.PlayOneShot(AudioManager.Instance.stepSE[stepIndex]);
+                /*se.PlayOneShot(AudioManager.Instance.stepSE[stepIndex]);
                 stepIndex++;
                 if (stepIndex >= AudioManager.Instance.stepSE.Length)
                 {
                     stepIndex = 0;
                 }
-                stepTimer = 0.2f;
+                stepTimer = 0.2f;*/
             }
         }
         else
@@ -91,25 +102,25 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-            horizontalSpeed = horizontal * speed;
+            horizontalVelocity += horizontal * speed;
     }
 
     private void UpdateMovement()
     {
-        Vector3 move = new Vector3(horizontalSpeed, verticalSpeed, 0f);
+        //Vector3 move = new Vector3(horizontalSpeed, verticalSpeed, 0f);
 
         if (activeFloor != null)
         {
             Vector3 newGlobalFloorPoint = activeFloor.TransformPoint(activeLocalFloorPoint);
             Vector3 moveDistance = newGlobalFloorPoint - activeGlobalFloorPoint;
-            controller.Move(moveDistance);
+            //controller.Move(moveDistance);
         }
         airFrame++;
         if(airFrame > 2)
         {
             activeFloor = null;
         }
-        controller.Move(move * Time.deltaTime);
+        //controller.Move(move * Time.deltaTime);
         
         if(activeFloor != null)
         {
@@ -120,15 +131,17 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateGravity() 
     {
-        if (controller.isGrounded)
+        /*if (controller.isGrounded)
         {
             verticalSpeed = -2f;
         }
         else
         {
             verticalSpeed -= gravity * Time.deltaTime;
-        }
-        verticalSpeed = Mathf.Max(verticalSpeed, -maxFallSpeed);
+        }*/
+        if(!onGround)
+            verticalVelocity -= gravity;
+        //verticalVelocity = Mathf.Max(verticalVelocity, -maxFallSpeed);
     }
 
     public void EnterBox(Transform socketTransform)
@@ -147,7 +160,8 @@ public class PlayerController : MonoBehaviour
 
     public void AddExternalForce(Vector3 force)
     {
-        controller.Move(force * Time.deltaTime);
+        horizontalVelocity = force.x;
+        verticalVelocity = force.y;
     }
 
     public void PlayerGage(float gage)
@@ -189,8 +203,8 @@ public class PlayerController : MonoBehaviour
 
     private void Spawn()
     {
-        verticalSpeed = 0f;
-        horizontalSpeed = 0f;
+        verticalVelocity = 0f;
+        horizontalVelocity = 0f;
 
 
         Warp(spawnPoint.position);
@@ -198,8 +212,8 @@ public class PlayerController : MonoBehaviour
 
     public void Warp(Vector3 position)
     {
-        controller.enabled = false;
+        //controller.enabled = false;
         transform.position = position;
-        controller.enabled = true;
+        //controller.enabled = true;
     }
 }
