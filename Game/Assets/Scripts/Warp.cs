@@ -3,17 +3,14 @@ using UnityEngine;
 public class Warp : MonoBehaviour
 {
     public Transform outPosition;
+    private WorldSE se;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        se = GetComponent<WorldSE>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +19,7 @@ public class Warp : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if(player != null)
         {
+            se.Play(AudioManager.Instance.gateSE);
             player.Warp(outPosition.position);
         }
     }

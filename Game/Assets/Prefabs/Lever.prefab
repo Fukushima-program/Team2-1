@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   elekObject: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 3479939702356731777, guid: 2e02c06833c9ec34aa30db8f2ac8356a, type: 3}
 --- !u!114 &8826813531028712839
 MonoBehaviour:
   m_ObjectHideFlags: 0

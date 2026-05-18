@@ -12,10 +12,24 @@ public class Conveyor : MonoBehaviour
 
     public float acceleration = 5.0f;
 
+    private WorldSE se;
+    private bool sePlaying = false;
+
+    void Start()
+    {
+        se = GetComponent<WorldSE>();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         /*if (elek == null) return;
         if (!elek.isElektric) return;*/
+
+        if (!sePlaying)
+        {
+            se.Play(AudioManager.Instance.conveyerSE, true);
+            sePlaying = true;
+        }
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null)
@@ -42,13 +56,9 @@ public class Conveyor : MonoBehaviour
         }
     }
 
-    //public void StartConveyor()
-    //{
-    //    isConveyor = true;
-    //}
-
-    //public void StopConveyor()
-    //{
-    //    isConveyor = false;
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        se.Stop();
+        sePlaying = false;
+    }
 }

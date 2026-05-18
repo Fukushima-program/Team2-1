@@ -7,10 +7,13 @@ public class Heal : MonoBehaviour
     private float height = 0.25f;
     private float speed = 2f;
     private Vector3 startPos;
+    private WorldSE se;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startPos = transform.position;
+        se = GetComponent<WorldSE>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class Heal : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            se.Play(AudioManager.Instance.goalSE);
             player.PlayerCharge(100);
             Destroy(gameObject);
         }

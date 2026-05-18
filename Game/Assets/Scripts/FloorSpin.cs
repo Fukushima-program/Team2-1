@@ -6,11 +6,15 @@ public class FloorSpin : MonoBehaviour
     //public bool isSpinning = false;
 
     private Elek elek;
+
+    private WorldSE se;
+    private bool sePlaying = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        elek = this.GetComponent<Elek>();
+        elek = GetComponent<Elek>();
+        se = GetComponent<WorldSE>();
     }
 
     // Update is called once per frame
@@ -20,7 +24,16 @@ public class FloorSpin : MonoBehaviour
 
         if (elek.isConnected)
         {
+            if (!sePlaying)
+            {
+                se.Play(AudioManager.Instance.rollBridgeSE, true);
+                sePlaying = true;
+            }
             transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+        }
+        else
+        {
+            se.Stop();
         }
 
     }

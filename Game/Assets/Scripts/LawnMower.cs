@@ -23,6 +23,9 @@ public class LawnMower : MonoBehaviour
     private Quaternion defaultRotation;  
     public PlayerController player;
 
+    private WorldSE se;
+    private bool sePlaying = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -84,6 +87,11 @@ public class LawnMower : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+        if (!sePlaying)
+        {
+            se.Play(AudioManager.Instance.mowerSE, true);
+            sePlaying = true;
+        }
     }
 
     private void FollowPlayer()
@@ -127,6 +135,7 @@ public class LawnMower : MonoBehaviour
     {
         isBroken = true;
         isFollowing = false;
+        se.Stop();
 
         Destroy(gameObject);
     }

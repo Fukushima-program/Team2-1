@@ -66,6 +66,6 @@ public class Lift : MonoBehaviour
             target = targetA;
         }
         isMoving = true;
-       se.Play(AudioManager.Instance.liftSE);
+       se.Play(AudioManager.Instance.liftSE, true);
     }
 }
