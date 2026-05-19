@@ -14,10 +14,22 @@ public class Conveyor : MonoBehaviour
 
     private WorldSE se;
     private bool sePlaying = false;
+    public float scrollSpeed;
+    [SerializeField]
+    private float playerSpeed;
+    private Vector2 offset;
+    private Renderer rend;
 
     void Start()
     {
         se = GetComponent<WorldSE>();
+        rend = GetComponentInChildren<Renderer>();
+    }
+
+    private void Update()
+    {
+        offset.x = (offset.x - scrollSpeed * Time.deltaTime) % 1f;
+        rend.material.mainTextureOffset = offset;
     }
 
     private void OnTriggerStay(Collider other)
@@ -49,10 +61,7 @@ public class Conveyor : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null && !player.isInBox)
         {
-            float keep = ConveyorSpeed;
-            ConveyorSpeed = 3;
-            player.AddExternalForce(Vector3.right * ConveyorSpeed);
-            ConveyorSpeed = keep;
+            player.AddExternalForce(Vector3.right * playerSpeed);
         }
     }
 
