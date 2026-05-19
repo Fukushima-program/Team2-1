@@ -71,7 +71,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6034957751646507721, guid: 927424e9ea631164b9603556435f6711, type: 3}
+  - {fileID: 2100000, guid: 9adbfb0849000c144907aa1bb9bce6b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Elek
   isElektric: 0
   isConnected: 0
+  isInfinit: 0
   ElekTime: 10
   timer: 0
 --- !u!114 &1499894547931026607

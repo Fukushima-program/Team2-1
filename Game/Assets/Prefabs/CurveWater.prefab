@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.12324
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.02189
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5434344262046804802, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e4e0e8b6f9e8d3458839dc6364a577c, type: 2}
     - target: {fileID: 919132149155446097, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
       propertyPath: m_Name
       value: CurveWater
@@ -67,5 +71,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 740995984419780074}
   m_SourcePrefab: {fileID: 100100000, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
+--- !u!1 &1394006594425288917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 95493636feb902f46a15cfc1081434cc, type: 3}
+  m_PrefabInstance: {fileID: 2277106505218540932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &740995984419780074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394006594425288917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f948a0f9373de9c4496c7d3fde7f71d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterUVScroll
+  speed: 3
