@@ -5,6 +5,7 @@ public class Door : MonoBehaviour
     public float minHigh = 0.0f;
     public float maxHigh = 5f;
     private Elek myElectric;
+    [SerializeField]
     private float speed = 0.3f;
 
     private WorldSE se;

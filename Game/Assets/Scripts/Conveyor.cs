@@ -17,6 +17,8 @@ public class Conveyor : MonoBehaviour
     public float scrollSpeed;
     [SerializeField]
     private float playerSpeed;
+    [SerializeField]
+    private Elek obj;
     private Vector2 offset;
     private Renderer rend;
 
@@ -24,7 +26,11 @@ public class Conveyor : MonoBehaviour
     {
         se = GetComponent<WorldSE>();
         rend = GetComponentInChildren<Renderer>();
-        elek = GetComponentInChildren<Elek>();
+        if (obj != null) { 
+            elek = obj.GetComponent<Elek>();
+        }
+        else
+            elek = GetComponentInChildren<Elek>();
     }
 
     private void Update()

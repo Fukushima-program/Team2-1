@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8737599622483527660}
   - component: {fileID: 3057543899390665919}
   - component: {fileID: -291642271466245122}
+  - component: {fileID: 6466566858785626960}
   m_Layer: 0
   m_Name: Conver
   m_TagString: Untagged
@@ -70,7 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Conveyor
   ConveyorSpeed: 0.01
-  elek: {fileID: 0}
   acceleration: 5
   scrollSpeed: 0.1
   playerSpeed: 2
@@ -184,6 +184,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldSE
   source: {fileID: 3057543899390665919}
+--- !u!114 &6466566858785626960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421569486894623358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c415730a178b681438dc38011bdf9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Elek
+  isElektric: 1
+  isConnected: 0
+  isInfinit: 1
+  ElekTime: 10
+  timer: 0
 --- !u!1001 &2430798268095607629
 PrefabInstance:
   m_ObjectHideFlags: 0

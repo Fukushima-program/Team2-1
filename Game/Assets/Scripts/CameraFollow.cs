@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
 
-    public float deadZoneWidth = 2f;
+    public float deadZoneWidth = 0f;
     public float followSpeed = 8f;
     public float yOffset = 2f;
 
