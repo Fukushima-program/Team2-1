@@ -8,7 +8,7 @@ public class Conveyor : MonoBehaviour
 
     //public bool isConveyor = false;
 
-    public Elek elek;
+    private Elek elek;
 
     public float acceleration = 5.0f;
 
@@ -24,23 +24,31 @@ public class Conveyor : MonoBehaviour
     {
         se = GetComponent<WorldSE>();
         rend = GetComponentInChildren<Renderer>();
+        elek = GetComponentInChildren<Elek>();
     }
 
     private void Update()
     {
+        if (!elek.isElektric) return;
         offset.x = (offset.x - scrollSpeed * Time.deltaTime) % 1f;
         rend.material.mainTextureOffset = offset;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        /*if (elek == null) return;
-        if (!elek.isElektric) return;*/
+        if (!elek.isElektric) return;
 
         if (!sePlaying)
         {
             se.Play(AudioManager.Instance.conveyerSE, true);
             sePlaying = true;
+        }
+
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null && !player.isInBox)
+        {
+            player.AddExternalForce(Vector3.right * playerSpeed);
+            return;
         }
 
         Rigidbody rb = other.attachedRigidbody;
@@ -58,11 +66,6 @@ public class Conveyor : MonoBehaviour
         Vector3 objPos = other.transform.position;
         objPos.x += ConveyorSpeed;
         other.transform.position = objPos;
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player != null && !player.isInBox)
-        {
-            player.AddExternalForce(Vector3.right * playerSpeed);
-        }
     }
 
     private void OnTriggerExit(Collider other)

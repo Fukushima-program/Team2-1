@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterFlow
   CurveWater: {fileID: 2322782460930192727}
-  StraightWater: {fileID: 8539572540979545145}
+  StraightWater: {fileID: 350952960100822358, guid: 06da1af19d3a4794088f07a54b01bfc7, type: 3}
   waterPoint: {fileID: 3041228251226388226}
 --- !u!82 &2023295934529416846
 AudioSource:
@@ -291,6 +291,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldSE
   source: {fileID: 4525507629517717443}
+--- !u!1 &8539572540979545145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8625432369115324938, guid: 8fe9617ec26ec2543b27cadf8b045401, type: 3}
+  m_PrefabInstance: {fileID: 85875094211159603}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9063906943364783747}
+  m_Layer: 0
+  m_Name: 'StraightWater (Missing Prefab with guid: 8fe9617ec26ec2543b27cadf8b045401)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9063906943364783747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9005054824042346672, guid: 8fe9617ec26ec2543b27cadf8b045401, type: 3}
+  m_PrefabInstance: {fileID: 85875094211159603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8539572540979545145}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.292, y: -1.84, z: 0.141}
+  m_LocalScale: {x: 1, y: 34.165524, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6337730797065012932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &85875094211159603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,16 +383,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe9617ec26ec2543b27cadf8b045401, type: 3}
---- !u!1 &8539572540979545145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8625432369115324938, guid: 8fe9617ec26ec2543b27cadf8b045401, type: 3}
-  m_PrefabInstance: {fileID: 85875094211159603}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9063906943364783747 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9005054824042346672, guid: 8fe9617ec26ec2543b27cadf8b045401, type: 3}
-  m_PrefabInstance: {fileID: 85875094211159603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3703278083525381506
 PrefabInstance:
   m_ObjectHideFlags: 0

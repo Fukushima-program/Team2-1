@@ -5,7 +5,8 @@ public class Elek : MonoBehaviour
 
     public bool isElektric = false;
     public bool isConnected = false;
-
+    [SerializeField]
+    private bool isInfinit = false;
     public float ElekTime = 10.0f;
 
     public float timer = 0.0f;
@@ -14,11 +15,14 @@ public class Elek : MonoBehaviour
     {
         if (isElektric)
         {
-            timer -= Time.deltaTime;
-
-            if (timer <= 0.0f)
+            if (!isInfinit)
             {
-                PowerOff();
+                timer -= Time.deltaTime;
+
+                if (timer <= 0.0f)
+                {
+                    PowerOff();
+                }
             }
         }
     }

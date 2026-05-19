@@ -38,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.475
+      value: 5.31853
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.392
+      value: -0.50248
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.348
+      value: -0.31712
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
       propertyPath: m_LocalRotation.w
@@ -76,10 +76,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 25762677049581b4dab598074d280c37, type: 2}
     - target: {fileID: -6505494680676671688, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -248005119892688762, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 25762677049581b4dab598074d280c37, type: 2}
     - target: {fileID: 919132149155446097, guid: 80749c8968e207e41ab4210dbcbf9182, type: 3}
       propertyPath: m_Name
       value: Lever
@@ -137,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Elek
   isElektric: 0
   isConnected: 0
+  isInfinit: 0
   ElekTime: 10
   timer: 0
 --- !u!65 &8759665410739788771

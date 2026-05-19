@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0056
+      value: 4.81155
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16077
+      value: -0.50248
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1365
+      value: -0.53253
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b94fc7bb1fb9cc2429bd6c3fdb1029cf, type: 2}
+    - target: {fileID: -4320790329304479752, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b94fc7bb1fb9cc2429bd6c3fdb1029cf, type: 2}
     - target: {fileID: 919132149155446097, guid: 5d4752d73e99a4e4ca5d3dfd103cf3b4, type: 3}
       propertyPath: m_Name
       value: WaterGear

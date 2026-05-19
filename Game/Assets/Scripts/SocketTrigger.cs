@@ -28,7 +28,7 @@ public class SocketTrigger : MonoBehaviour
         {
             se.Play(AudioManager.Instance.socketSE);
             currentPlayer.EnterBox(transform);
-            currentPlayer.speed = 0.0f;
+            //currentPlayer.speed = 0.0f;
 
             if (elek != null)
             {

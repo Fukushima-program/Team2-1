@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
     private void ExitBox()
     {
         isInBox = false;
-        speed = 5.0f;
+        //speed = 5.0f;
     }
 
     public void AddExternalForce(Vector3 force)

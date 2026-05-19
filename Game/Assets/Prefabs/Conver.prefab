@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.92, y: -0.59, z: 0}
-  m_LocalScale: {x: 10, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2752076883385668774}
@@ -55,8 +55,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.3994663, z: 1}
-  m_Center: {x: 0, y: 0.19973317, z: 0}
+  m_Size: {x: 3.6425052, y: 0.7433672, z: 2.8277283}
+  m_Center: {x: 0.0045092106, y: 0.047297105, z: -0.0038237572}
 --- !u!114 &8737599622483527660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,9 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae443f6bb2f0d894f9be14f569bb1d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Conveyor
-  ConveyorSpeed: 3
+  ConveyorSpeed: 0.01
   elek: {fileID: 0}
   acceleration: 5
+  scrollSpeed: 0.1
+  playerSpeed: 2
 --- !u!82 &3057543899390665919
 AudioSource:
   m_ObjectHideFlags: 0
@@ -191,16 +193,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 2631762343880743735}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 118.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 118.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 118.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.61497504
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.19124
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
       propertyPath: m_LocalRotation.w
@@ -230,6 +244,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 368bd6cabee2e0148a3abcf011878214, type: 2}
     - target: {fileID: 919132149155446097, guid: 3700f630a5f0530409f52459992a3587, type: 3}
       propertyPath: m_Name
       value: Comveyer
@@ -237,10 +259,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4587437727697811604}
   m_SourcePrefab: {fileID: 100100000, guid: 3700f630a5f0530409f52459992a3587, type: 3}
 --- !u!4 &2752076883385668774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3700f630a5f0530409f52459992a3587, type: 3}
   m_PrefabInstance: {fileID: 2430798268095607629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3277081164102503964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3700f630a5f0530409f52459992a3587, type: 3}
+  m_PrefabInstance: {fileID: 2430798268095607629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4587437727697811604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277081164102503964}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.030453652, y: 0.005261068, z: 0.023674812}
+  m_Center: {x: 0, y: 1.1641532e-10, z: 0}
