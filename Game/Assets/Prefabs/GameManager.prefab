@@ -505,12 +505,11 @@ MonoBehaviour:
   leverSE: {fileID: 8300000, guid: eefaa4aeed3fefb4a8c085e08eb47d73, type: 3}
   conveyerSE: {fileID: 8300000, guid: 914ec3e6131886547ae46e8a3f5296a5, type: 3}
   doorSE: {fileID: 8300000, guid: 914ec3e6131886547ae46e8a3f5296a5, type: 3}
-  gateSE: {fileID: 8300000, guid: 4a4f583e9c24f0943a6d5a118c74bde7, type: 3}
+  gateSE: {fileID: 8300000, guid: 9b13497f87bf996409a31ac323035c4e, type: 3}
   rollBridgeSE: {fileID: 8300000, guid: 914ec3e6131886547ae46e8a3f5296a5, type: 3}
-  socketSE: {fileID: 8300000, guid: 4a4f583e9c24f0943a6d5a118c74bde7, type: 3}
-  pipeSE: {fileID: 8300000, guid: 4a4f583e9c24f0943a6d5a118c74bde7, type: 3}
-  waterWheelSE: {fileID: 8300000, guid: 151ae02b6b8ba5941ba4322fd8b66ad3, type: 3}
-  goalSE: {fileID: 8300000, guid: 4a4f583e9c24f0943a6d5a118c74bde7, type: 3}
+  socketSE: {fileID: 8300000, guid: 90848f351a622ac4ea8eac5a105f06fa, type: 3}
+  pipeSE: {fileID: 8300000, guid: a46c5fa26ebcfe842a98709de1c6bd20, type: 3}
+  goalSE: {fileID: 8300000, guid: ca06cfc701ec57e46811708a6d8ef3d0, type: 3}
   getItemSE: {fileID: 8300000, guid: 4a4f583e9c24f0943a6d5a118c74bde7, type: 3}
-  healSE: {fileID: 8300000, guid: 4a4f583e9c24f0943a6d5a118c74bde7, type: 3}
+  healSE: {fileID: 8300000, guid: ff994b3726060774ca5dcabc42ea6c26, type: 3}
   bgmVolume: 0.1

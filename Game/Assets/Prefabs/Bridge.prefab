@@ -111,6 +111,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2305611551656725180, guid: fcbd9b8fd7c1c234b9affc55fec2a2ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5255608482990076301}
+    - targetCorrespondingSourceObject: {fileID: 2305611551656725180, guid: fcbd9b8fd7c1c234b9affc55fec2a2ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9009864115693241000}
   m_SourcePrefab: {fileID: 100100000, guid: fcbd9b8fd7c1c234b9affc55fec2a2ef, type: 3}
 --- !u!1 &996243943808814730 stripped
 GameObject:
@@ -260,6 +263,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldSE
   source: {fileID: 3700882223904292767}
+--- !u!114 &9009864115693241000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996243943808814730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c415730a178b681438dc38011bdf9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Elek
+  isElektric: 0
+  isConnected: 0
+  ElekTime: 10
+  timer: 0
 --- !u!1 &2228466230767892839 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fcbd9b8fd7c1c234b9affc55fec2a2ef, type: 3}

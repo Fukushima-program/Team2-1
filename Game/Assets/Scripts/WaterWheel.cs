@@ -24,7 +24,7 @@ public class WaterWheel : MonoBehaviour
         {
             if (!sePlaying)
             {
-                se.Play(AudioManager.Instance.waterWheelSE, true);
+                se.Play(AudioManager.Instance.waterSE, true);
                 sePlaying = true;
             }
             transform.Rotate(Vector3.back * spinSpeed * Time.deltaTime);

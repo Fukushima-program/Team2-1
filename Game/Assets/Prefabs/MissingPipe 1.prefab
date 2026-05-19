@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed14ae81fc90e842bf9fa8f1af03f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
-  InteractionDis: 5
-  player: {fileID: 3479939702356731777, guid: 2e02c06833c9ec34aa30db8f2ac8356a, type: 3}
+  InteractionDis: 1.5
+  player: {fileID: 1803850472879630165, guid: e0b815fe05ab9f547bfc6ad3cd2cdddb, type: 3}
   pipe: {fileID: 0}
   rb: {fileID: 7298082895202426816}
   offset: {x: 0, y: 1, z: 1.09}

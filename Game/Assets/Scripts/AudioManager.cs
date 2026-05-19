@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip rollBridgeSE;
     public AudioClip socketSE;
     public AudioClip pipeSE;
-    public AudioClip waterWheelSE;
     public AudioClip goalSE;
     public AudioClip getItemSE;
     public AudioClip healSE;

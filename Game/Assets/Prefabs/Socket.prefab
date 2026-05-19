@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   targetTag: Player
   elekObject: {fileID: 0}
-  currentPlayer: {fileID: 3479939702356731777, guid: 2e02c06833c9ec34aa30db8f2ac8356a, type: 3}
+  currentPlayer: {fileID: 1803850472879630165, guid: e0b815fe05ab9f547bfc6ad3cd2cdddb, type: 3}
 --- !u!65 &347139575438092133
 BoxCollider:
   m_ObjectHideFlags: 0
