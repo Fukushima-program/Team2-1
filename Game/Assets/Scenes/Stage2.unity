@@ -1262,7 +1262,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962873301}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b0c3b2682263363459ee7a0426a5bd61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1451,7 +1451,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011067381}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b0c3b2682263363459ee7a0426a5bd61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2420,6 +2420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Elek
   isElektric: 0
   isConnected: 0
+  isInfinit: 0
   ElekTime: 20
   timer: 0
 --- !u!1001 &1722859805
@@ -2844,6 +2845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Elek
   isElektric: 0
   isConnected: 0
+  isInfinit: 0
   ElekTime: 20
   timer: 0
 --- !u!1001 &1901425137

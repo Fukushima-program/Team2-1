@@ -20,6 +20,9 @@ public class Valve : MonoBehaviour
         if(distance <= InteractionDis && Input.GetMouseButtonDown(0))
         {
             transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+            Vector3 rot = transform.eulerAngles;
+            
+
         }
     }
 }
