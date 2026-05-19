@@ -82,13 +82,13 @@ public class PlayerController : MonoBehaviour
             if(stepTimer <= 0f)
             {
 
-                /*se.PlayOneShot(AudioManager.Instance.stepSE[stepIndex]);
+                se.PlayOneShot(AudioManager.Instance.stepSE[stepIndex]);
                 stepIndex++;
                 if (stepIndex >= AudioManager.Instance.stepSE.Length)
                 {
                     stepIndex = 0;
                 }
-                stepTimer = 0.2f;*/
+                stepTimer = 0.2f;
             }
         }
         else
