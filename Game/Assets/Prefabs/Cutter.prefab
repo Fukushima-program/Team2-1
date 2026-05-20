@@ -104,10 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7984f8e45ec13dd45b99f6848f6f4335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LawnMower
-  rb: {fileID: 0}
   chargeDistance: 1
   holdDistance: 0.6
   holdHeight: 0
+  gageInterval: 1
+  gageAmount: 2
   player: {fileID: 0}
 --- !u!82 &4073015839410944309
 AudioSource:
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbe9e058df19ef4ea964def9a28e4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldSE
-  source: {fileID: 0}
+  source: {fileID: 4073015839410944309}
 --- !u!65 &-3642446181768671509
 BoxCollider:
   m_ObjectHideFlags: 0
