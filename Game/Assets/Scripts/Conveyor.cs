@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal.Commands;
 using UnityEngine;
 
 
@@ -21,6 +22,8 @@ public class Conveyor : MonoBehaviour
     private Elek obj;
     private Vector2 offset;
     private Renderer rend;
+    [SerializeField]
+    private bool isReversible = false;
 
     void Start()
     {
@@ -35,15 +38,30 @@ public class Conveyor : MonoBehaviour
 
     private void Update()
     {
+        float offsetScroll = scrollSpeed * Time.deltaTime;
+        if (isReversible)
+        {
+            if (!elek.isElektric)
+                offsetScroll *= -1;
+            goto SKIP;
+        }
         if (!elek.isElektric) return;
-        offset.x = (offset.x - scrollSpeed * Time.deltaTime) % 1f;
+        SKIP:
+        offset.x = (offset.x - offsetScroll) % 1f;
         rend.material.mainTextureOffset = offset;
     }
 
     private void OnTriggerStay(Collider other)
     {
+        Vector3 Velos = Vector3.right;
+        if (isReversible)
+        {
+            if (!elek.isElektric)
+                Velos.x *= -1;
+            goto SKIP;
+        }
         if (!elek.isElektric) return;
-
+        SKIP:
         if (!sePlaying)
         {
             se.Play(AudioManager.Instance.conveyerSE, true);
@@ -53,14 +71,14 @@ public class Conveyor : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null && !player.isInBox)
         {
-            player.AddExternalForce(Vector3.right * playerSpeed);
+            player.AddExternalForce(Velos * playerSpeed);
             return;
         }
 
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null)
         {
-            Vector3 targetVelocity = Vector3.right * ConveyorSpeed;
+            Vector3 targetVelocity = Velos * ConveyorSpeed;
 
             rb.linearVelocity = Vector3.Lerp(
                 rb.linearVelocity,
@@ -70,7 +88,7 @@ public class Conveyor : MonoBehaviour
         }
 
         Vector3 objPos = other.transform.position;
-        objPos.x += ConveyorSpeed;
+        objPos.x += ConveyorSpeed*Velos.x;
         other.transform.position = objPos;
     }
 
