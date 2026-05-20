@@ -27,7 +27,7 @@ public class Heal : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            se.Play(AudioManager.Instance.goalSE);
+            se.Play(AudioManager.Instance.healSE);
             player.PlayerCharge(100);
             Destroy(gameObject);
         }
