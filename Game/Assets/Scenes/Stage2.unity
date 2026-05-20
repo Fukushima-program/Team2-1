@@ -724,7 +724,7 @@ Transform:
   m_GameObject: {fileID: 363189149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.02, y: 9.53, z: 7.1}
+  m_LocalPosition: {x: -7.55, y: 9.53, z: 7.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -847,7 +847,7 @@ PrefabInstance:
     - target: {fileID: 200861986322901844, guid: a6c7446716014aa429352e99953487c8, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 693548071}
     - target: {fileID: 8282590461625730779, guid: a6c7446716014aa429352e99953487c8, type: 3}
       propertyPath: m_Name
       value: Heal Item
@@ -1250,7 +1250,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
   m_LocalPosition: {x: -0.00122, y: -0.00259, z: 0}
-  m_LocalScale: {x: 0.0091069415, y: 0.0013122179, z: 0.034988966}
+  m_LocalScale: {x: 0.01147839, y: 0.0013122179, z: 0.034988966}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 365152584}
@@ -1283,7 +1283,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962873301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1437,13 +1437,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011067381}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2588191, y: -0.9659258, z: -0, w: 0}
+  m_LocalRotation: {x: -0.2603546, y: -0.9655131, z: -0, w: 0}
   m_LocalPosition: {x: -0.001359965, y: -0.0025, z: 0.00010000228}
-  m_LocalScale: {x: 0.009106941, y: 0.0013122178, z: 0.034988966}
+  m_LocalScale: {x: 0.011240697, y: 0.0013122178, z: 0.034988966}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 894615686}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 30.182}
 --- !u!65 &1011067383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1472,7 +1472,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011067381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -10,9 +10,11 @@ public class Pipe : MonoBehaviour
     public Rigidbody rb;
     public Vector3 offset = new Vector3(0.0f, 0.0f, 0.0f);
 
+    public Valve valve;
     public WaterWheel wheel;
     public WaterFlow water;
-    private bool isFollowing = false;
+    public float pipeOffset = 0f;
+    public bool isFollowing = false;
     private bool isConnected = false;
 
     private WorldSE se;
@@ -31,32 +33,49 @@ public class Pipe : MonoBehaviour
             return;
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if(distance < InteractionDis && Input.GetMouseButtonDown(0) && !isConnected)
+ 
+        if (Input.GetMouseButtonDown(0))
         {
-            se.PlayOneShot(AudioManager.Instance.pipeSE);
-            rb.useGravity = false;
-            isFollowing = true;
-        }
-        if(Input.GetMouseButtonDown(1))
-        {
-            rb.useGravity = true;
-            isFollowing = false;
-
-            float distance1 = Vector3.Distance(transform.position, pipe.transform.position);
-            if(distance1 < 3)
+            if (!isFollowing && distance < InteractionDis && !isConnected)
             {
-                Vector3 newPos = new Vector3(pipe.transform.position.x + 2f, pipe.transform.position.y, pipe.transform.position.z);
-                transform.position = newPos;
+                se.PlayOneShot(AudioManager.Instance.pipeSE);
                 rb.useGravity = false;
-                isConnected = true;
+                isFollowing = true;
             }
+            else if (isFollowing)
+            {
+                rb.useGravity = true;
+                isFollowing = false;
 
+                float distance1 = Vector3.Distance(transform.position, pipe.transform.position);
+                if (distance1 < 3)
+                {
+                    Vector3 newPos = new Vector3(pipe.transform.position.x + pipeOffset, pipe.transform.position.y, pipe.transform.position.z);
+                    transform.position = newPos;
+                    rb.useGravity = false;
+                    isConnected = true;
+                }
+            }
         }
+
         if (isConnected)
         {
-            se.Play(AudioManager.Instance.pipeSE);
-            wheel.spin = true;
-            water.StopFlow();
+            bool canSpin = true;
+            if (valve != null)
+            {
+                canSpin = valve.isOpened;
+            }
+
+            if (canSpin)
+            {
+                se.Play(AudioManager.Instance.pipeSE);
+                wheel.spin = true;
+                water.StopFlow();
+            }
+            else
+            {
+                wheel.spin = false;
+            }
         }
         if (isFollowing)
         {
