@@ -12,6 +12,23 @@ public class LiftLoop : MonoBehaviour
     private bool sePlaying = false;
     private WorldSE se;
 
+    private bool stoppedByPlant = false;
+
+    public void StopByPlant()
+    {
+        stoppedByPlant = true;
+
+        if (se != null)
+        {
+            se.Stop();
+        }
+    }
+
+    public void RestartByPlant()
+    {
+        stoppedByPlant = false;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +39,9 @@ public class LiftLoop : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (stoppedByPlant) return;
+
         if (elek.isElektric)
         {
             if (stopTimer > 0f)

@@ -8,6 +8,7 @@ public class Plant : MonoBehaviour
     public float destSpeed = 0.6f;
     public float destScale = 0.3f;
 
+    private LiftLoop lift;
 
     void Update()
     {
@@ -15,12 +16,17 @@ public class Plant : MonoBehaviour
         if (isCut)
         {
 
-            transform.localScale -= Vector3.one * destSpeed * destScale;
+            transform.localScale -= Vector3.one * destSpeed * Time.deltaTime;
 
-            if(transform.localScale.x <= destScale )
+            if( transform.localScale.x <= destScale )
             {
 
-               Destroy(gameObject);
+                if(lift != null)
+                {
+                    lift.RestartByPlant();
+                }
+
+                Destroy(gameObject);
 
             }
         }
@@ -29,15 +35,24 @@ public class Plant : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
        LawnMower mower = other.GetComponentInParent<LawnMower>();
 
         if (mower != null && mower.CanCut())
         {
 
             isCut = true;
-
             mower.BreakMower();
+        }
+
+
+        LiftLoop hitLift = other.GetComponentInParent<LiftLoop>();
+
+        if(hitLift != null)
+        {
+
+            lift = hitLift;
+            lift.StopByPlant();
         }
     }
 }
-
