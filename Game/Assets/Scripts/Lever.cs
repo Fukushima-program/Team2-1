@@ -41,10 +41,12 @@ public class Lever : MonoBehaviour
             if (targetZ == 30f)
             {
                 targetZ = -30f;
+                electric.PowerOn();
             }
             else
             {
                 targetZ = 30f;
+                electric.isElektric = false;
             }
         }
 
@@ -62,7 +64,6 @@ public class Lever : MonoBehaviour
                 se.Stop();
                 sePlaying = false;
                 startLever = false;
-                electric.PowerOn();
             }
         }
     }

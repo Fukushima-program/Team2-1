@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
     public void AddExternalForce(Vector3 force)
     {
-        horizontalVelocity = force.x;
+        horizontalVelocity = force.x*15;
         verticalVelocity = force.y;
     }
 
