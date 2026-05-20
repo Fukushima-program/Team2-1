@@ -4,13 +4,17 @@ public class LawnMower : MonoBehaviour
 {
    
   
-    public Rigidbody rb;
+    private Rigidbody rb;
 
     public float chargeDistance = 1.0f;
 
     public float holdDistance = 0.6f;
     public float holdHeight = 0.0f;
 
+    public float gageInterval = 1.0f;
+    public float gageAmount = 2.0f;
+
+    private float gageTimer = 0.0f;
 
     private float height = 0.25f;
     private float speed = 1.5f;
@@ -29,6 +33,8 @@ public class LawnMower : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        se = GetComponent<WorldSE>();
+
         StartPos = transform.position;
         defaultRotation = transform.rotation;
     }
@@ -50,6 +56,7 @@ public class LawnMower : MonoBehaviour
         {
 
             FollowPlayer();
+            UseGageWhileFollowing();
 
             if (Input.GetMouseButtonDown(1))
             {
@@ -65,8 +72,6 @@ public class LawnMower : MonoBehaviour
     {
 
         PlayerController hitplayer = other.GetComponent<PlayerController>();
-
-
 
         if (hitplayer == null) return;
 
@@ -94,9 +99,22 @@ public class LawnMower : MonoBehaviour
         }
     }
 
+    private void UseGageWhileFollowing()
+    {
+        if (player == null) return;
+
+        gageTimer -= Time.deltaTime;
+
+        if (gageTimer <= 0.0f)
+        {
+            player.PlayerGage(gageAmount);
+            gageTimer = gageInterval;
+        }
+    }
+
     private void FollowPlayer()
     {
-        float dir = player.transform.forward.x >= 0 ? 1f : -1f;
+        float dir = player.transform.forward.x >= 0 ? -1f : 1f;
 
         transform.position =
             player.transform.position +
