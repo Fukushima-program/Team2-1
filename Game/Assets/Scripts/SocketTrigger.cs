@@ -24,16 +24,17 @@ public class SocketTrigger : MonoBehaviour
         if (currentPlayer == null) return;
 
         float distance = Vector3.Distance(currentPlayer.transform.position, transform.position);
-        if (distance < 0.8f && Input.GetMouseButtonDown(0))
+        if (distance < 0.8f && Input.GetMouseButtonDown(0) && !currentPlayer.isInBox)
         {
             se.Play(AudioManager.Instance.socketSE);
+            currentPlayer.PlayerGage(10);
+            currentPlayer.UpdateHealth();
             currentPlayer.EnterBox(transform);
             //currentPlayer.speed = 0.0f;
 
             if (elek != null)
             {
                 elek.PowerOn();
-                currentPlayer.PlayerGage(10);
             }
         }
     }
@@ -50,13 +51,12 @@ public class SocketTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag(targetTag))
         {
-            currentPlayer = other.GetComponent<PlayerController>();
-
             if (currentPlayer != null)
             {
                 currentPlayer.isInBox = false;
-                elek.isConnected = false;  
             }
+            elek.isConnected = false;
+            currentPlayer = null;
         }
     }
 }
