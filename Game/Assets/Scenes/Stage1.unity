@@ -808,6 +808,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5ebc8c95acb3bc45b8bb8e17491aa20, type: 3}
+--- !u!114 &293093034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8783142381622009085, guid: c5ebc8c95acb3bc45b8bb8e17491aa20, type: 3}
+  m_PrefabInstance: {fileID: 293093033}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126595992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c415730a178b681438dc38011bdf9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Elek
 --- !u!1 &301643653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,11 +1209,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73024e688b930684e81b84d807c9b5b1, type: 3}
---- !u!1 &641161711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8671526510589211037, guid: c5ebc8c95acb3bc45b8bb8e17491aa20, type: 3}
-  m_PrefabInstance: {fileID: 735627806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &641161717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8294684686500571943, guid: c5ebc8c95acb3bc45b8bb8e17491aa20, type: 3}
@@ -1445,6 +1451,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1753971111}
     m_Modifications:
     - target: {fileID: 2975083269722999317, guid: c5ebc8c95acb3bc45b8bb8e17491aa20, type: 3}
+      propertyPath: elek
+      value: 
+      objectReference: {fileID: 293093034}
+    - target: {fileID: 2975083269722999317, guid: c5ebc8c95acb3bc45b8bb8e17491aa20, type: 3}
       propertyPath: spinSpeed
       value: 25
       objectReference: {fileID: 0}
@@ -1606,10 +1616,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6328510036293594227, guid: d7ea477da6329894cb1bd6c19414a957, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1440323508}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7ea477da6329894cb1bd6c19414a957, type: 3}
 --- !u!4 &927520433 stripped
 Transform:
@@ -2005,31 +2012,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfce8d13021adc4e9e0b13523e88b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_Script
---- !u!1 &1440323501 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6328510036293594227, guid: d7ea477da6329894cb1bd6c19414a957, type: 3}
-  m_PrefabInstance: {fileID: 925931549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1440323507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6672279615508477641, guid: d7ea477da6329894cb1bd6c19414a957, type: 3}
   m_PrefabInstance: {fileID: 925931549}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1440323508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440323501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96112cc33edb8b745900b6b58f325213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SocketTrigger
-  targetTag: Player
-  elekObject: {fileID: 641161711}
-  currentPlayer: {fileID: 0}
 --- !u!1 &1568025001
 GameObject:
   m_ObjectHideFlags: 0

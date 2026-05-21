@@ -5,6 +5,7 @@ public class FloorSpin : MonoBehaviour
     public float spinSpeed = 0.0f;
     //public bool isSpinning = false;
 
+    [SerializeField]
     private Elek elek;
 
     private WorldSE se;
@@ -13,7 +14,11 @@ public class FloorSpin : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        elek = GetComponent<Elek>();
+        if(elek != null)
+        {
+            elek=elek.GetComponent<Elek>();
+        }else
+            elek = GetComponent<Elek>();
         se = GetComponent<WorldSE>();
     }
 
