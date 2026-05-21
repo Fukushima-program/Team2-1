@@ -60,10 +60,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7ba067dfd7389bd4aa82b35e8e9708a4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e83b65ca0b9c6346ada2d2c9e1338a8, type: 2}
     - target: {fileID: 919132149155446097, guid: 7ba067dfd7389bd4aa82b35e8e9708a4, type: 3}
       propertyPath: m_Name
       value: Cutter
       objectReference: {fileID: 0}
+    - target: {fileID: 8084854973141751649, guid: 7ba067dfd7389bd4aa82b35e8e9708a4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 290e6f5b629da61439fdad2cda25ce5c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
