@@ -114,7 +114,7 @@ public class LawnMower : MonoBehaviour
 
     private void FollowPlayer()
     {
-        float dir = player.transform.forward.x >= 0 ? -1f : 1f;
+        float dir = player.transform.forward.x >= 0 ? 1f : -1f;
 
         transform.position =
             player.transform.position +
