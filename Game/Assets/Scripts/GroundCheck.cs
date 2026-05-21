@@ -21,4 +21,10 @@ public class GroundCheck : MonoBehaviour
         if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
             player.onGround = true;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+            player.onGround = false;
+    }
 }

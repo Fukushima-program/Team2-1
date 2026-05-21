@@ -96,5 +96,11 @@ public class Conveyor : MonoBehaviour
     {
         se.Stop();
         sePlaying = false;
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null && !player.isInBox)
+        {
+            player.DeleteExternalForce();
+            return;
+        }
     }
 }

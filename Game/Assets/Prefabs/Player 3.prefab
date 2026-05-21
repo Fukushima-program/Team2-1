@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2892768937061363634}
   m_Layer: 0
   m_Name: Player 3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   spawnPoint: {fileID: 0}
   Gage: 100
-  speed: 15
+  speed: 8
   isInBox: 0
   horizontalVelocity: 0
   verticalVelocity: 0
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 8449490085554397710}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,8 +565,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3975315, y: 0.15123105, z: 0.42980668}
-  m_Center: {x: 0.013748407, y: -0.403836, z: -0.024317041}
+  m_Size: {x: 0.3975315, y: 0.2490412, z: 0.42980668}
+  m_Center: {x: 0.013748407, y: -0.4527411, z: -0.024317041}
 --- !u!114 &8145559714655272044
 MonoBehaviour:
   m_ObjectHideFlags: 0

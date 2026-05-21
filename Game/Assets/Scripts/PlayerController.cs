@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     
     public float speed = 5f;
     public bool isInBox = false;
+    private float externalVelocity=0;
     private int stepIndex;
     private WorldSE se;
     private Rigidbody rb;
@@ -55,10 +56,8 @@ public class PlayerController : MonoBehaviour
         UpdateGravity();
         UpdateDirection();
         UpdateMovement();
-        rb.linearVelocity = new Vector3(horizontalVelocity, verticalVelocity, 0f);
-        horizontalVelocity = 0;
-        verticalVelocity = 0;
-        onGround = false;
+        rb.linearVelocity = new Vector3(horizontalVelocity+externalVelocity, verticalVelocity, 0f);
+        //onGround = false;
     }
 
     private void UpdateDirection()
@@ -101,7 +100,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-            horizontalVelocity += horizontal * speed;
+            horizontalVelocity = horizontal * speed;
     }
 
     private void UpdateMovement()
@@ -139,7 +138,9 @@ public class PlayerController : MonoBehaviour
             verticalSpeed -= gravity * Time.deltaTime;
         }*/
         if(!onGround)
-            verticalVelocity -= gravity;
+            verticalVelocity -= gravity*Time.deltaTime;
+        else
+            verticalVelocity = 0f;
         //verticalVelocity = Mathf.Max(verticalVelocity, -maxFallSpeed);
     }
 
@@ -159,8 +160,12 @@ public class PlayerController : MonoBehaviour
 
     public void AddExternalForce(Vector3 force)
     {
-        horizontalVelocity = force.x*15;
+        externalVelocity = force.x;
         verticalVelocity = force.y;
+    }
+    public void DeleteExternalForce()
+    {
+        externalVelocity = 0f;
     }
 
     public void PlayerGage(float gage)
