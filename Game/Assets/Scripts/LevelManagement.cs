@@ -12,6 +12,7 @@ public class LevelManagement : MonoBehaviour
     public float cursorSpeed = 10f;
 
     private int currentIndex = 0;
+    private int lastStageIndex = 0;
     private Vector3[] originalScale;
     private UI_Script ui;
 
@@ -38,16 +39,46 @@ public class LevelManagement : MonoBehaviour
 
     private void InputMove()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            currentIndex++;
-            if(currentIndex >= stages.Length) currentIndex = 0;
+            if (currentIndex == 3)
+            {
+                currentIndex = lastStageIndex;
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
+        // Go DOWN to title button
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            currentIndex--;
-            if(currentIndex < 0) currentIndex = stages.Length - 1;
+            if (currentIndex != 3)
+            {
+                lastStageIndex = currentIndex;
+                currentIndex = 3;
+            }
+        }
+
+        // Left / Right only for stages
+        if (currentIndex != 3)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                currentIndex++;
+
+                if (currentIndex > 2)
+                {
+                    currentIndex = 0;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                currentIndex--;
+
+                if (currentIndex < 0)
+                {
+                    currentIndex = 2;
+                }
+            }
         }
     }
 
@@ -69,8 +100,8 @@ public class LevelManagement : MonoBehaviour
 
     private void CursorFollow()
     {
-        Vector3 targetPos = stages[currentIndex].position;
-        cursor.position = Vector3.Lerp(cursor.position, targetPos, Time.deltaTime * cursorSpeed);
+        //Vector3 targetPos = stages[currentIndex].position;
+        cursor.position = Vector3.Lerp(cursor.position, stages[currentIndex].position, Time.deltaTime * cursorSpeed);
     }
 
     private void MoveCursor()
