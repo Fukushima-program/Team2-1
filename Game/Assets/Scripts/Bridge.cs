@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class Bridge : MonoBehaviour
 {
-    private float speed = 3.0f;
+    private float speed = 9.0f;
+    [SerializeField]
     private Elek elek;
     private WorldSE se;
     private bool sePlaying = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        elek = GetComponent<Elek>();
+        if (elek != null)
+        {
+            elek=elek.GetComponent<Elek>();
+        }
+        else
+            elek = GetComponent<Elek>();
         se = GetComponent<WorldSE>();
     }
 

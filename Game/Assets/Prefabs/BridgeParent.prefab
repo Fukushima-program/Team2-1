@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1689586384757169374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2939786105532366340}
+  - component: {fileID: 2629349360791852141}
+  m_Layer: 0
+  m_Name: BridgeParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2939786105532366340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689586384757169374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5854117868949045683}
+  - {fileID: 9085179261354773620}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2629349360791852141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689586384757169374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c415730a178b681438dc38011bdf9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Elek
+  isElektric: 0
+  isConnected: 0
+  isInfinit: 0
+  ElekTime: 10
+  timer: 0
+--- !u!1001 &4942924587401110126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2939786105532366340}
+    m_Modifications:
+    - target: {fileID: 1125549246235016123, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: elek
+      value: 
+      objectReference: {fileID: 2629349360791852141}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.092
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.02063
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228466230767892839, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_Name
+      value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631018561344165557, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9063079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631018561344165557, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.42261827
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631018561344165557, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1113456557869647048, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 996243943808814730, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 8784296561749754693}
+  m_SourcePrefab: {fileID: 100100000, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+--- !u!1 &5281479019731987684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 996243943808814730, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+  m_PrefabInstance: {fileID: 4942924587401110126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8784296561749754693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281479019731987684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c415730a178b681438dc38011bdf9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Elek
+  isElektric: 0
+  isConnected: 0
+  isInfinit: 0
+  ElekTime: 20
+  timer: 0
+--- !u!4 &5854117868949045683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+  m_PrefabInstance: {fileID: 4942924587401110126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7760758725914390441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2939786105532366340}
+    m_Modifications:
+    - target: {fileID: 1125549246235016123, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: elek
+      value: 
+      objectReference: {fileID: 2629349360791852141}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.02063
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228466230767892839, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_Name
+      value: Bridge (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631018561344165557, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9063079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631018561344165557, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.42261827
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631018561344165557, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1113456557869647048, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 996243943808814730, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 7200913844583804653}
+  m_SourcePrefab: {fileID: 100100000, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+--- !u!1 &7377070358240174371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 996243943808814730, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+  m_PrefabInstance: {fileID: 7760758725914390441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7200913844583804653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7377070358240174371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c415730a178b681438dc38011bdf9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Elek
+  isElektric: 0
+  isConnected: 0
+  isInfinit: 0
+  ElekTime: 20
+  timer: 0
+--- !u!4 &9085179261354773620 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1560157067672544221, guid: 82fe5ed63469fdf4dbe9bf5a8afb6bb4, type: 3}
+  m_PrefabInstance: {fileID: 7760758725914390441}
+  m_PrefabAsset: {fileID: 0}
