@@ -29,6 +29,7 @@ public class Heal : MonoBehaviour
         {
             se.Play(AudioManager.Instance.healSE);
             player.PlayerCharge(100);
+            player.UpdateHealth();
             Destroy(gameObject);
         }
     }

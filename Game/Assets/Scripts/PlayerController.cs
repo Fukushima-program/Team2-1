@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     //private float horizontalSpeed;
     //private float verticalSpeed;
     //private float maxFallSpeed = 20.0f;
-    private float gravity = 6.0f;
+    private float gravity = 15.0f;
     private Transform activeFloor;
     private Vector3 activeLocalFloorPoint;
     private Vector3 activeGlobalFloorPoint;

@@ -23,7 +23,6 @@ public class Fade : MonoBehaviour
                     Color c = rend.sharedMaterial.color;
                     c.a -= 0.02f * isreversed;
                     rend.sharedMaterial.color = c;
-                    Debug.Log("moving");
                 }
                 break;
             case -1:
@@ -32,7 +31,6 @@ public class Fade : MonoBehaviour
                     Color c = rend.sharedMaterial.color;
                     c.a -= 0.02f * isreversed;
                     rend.sharedMaterial.color = c;
-                    Debug.Log("moving");
                 }
                 break;
         }

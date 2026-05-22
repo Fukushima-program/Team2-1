@@ -2156,7 +2156,8 @@ PrefabInstance:
       value: RestartScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1789546121500099245, guid: 87be1b95d0173614280ef64b6f862fee, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3653566847402534347, guid: 87be1b95d0173614280ef64b6f862fee, type: 3}
       insertIndex: 1
