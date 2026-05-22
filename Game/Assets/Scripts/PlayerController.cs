@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour
     private byte IdlingTimer;
     private Animator animator;
     private float stepTimer;
- 
-    public float Gage = 100.0f;
-    
+
+    public float Gage;
+    private float maxGauge = 100f;
     public float speed = 5f;
     public bool isInBox = false;
     private float externalVelocity=0;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [Header("RayCast to Ground")]
     public Transform groundCheck;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         se = GetComponent<WorldSE>();
         rb=GetComponent<Rigidbody>();
+        Gage = maxGauge;
         Spawn();
     }
 
@@ -141,6 +143,8 @@ public class PlayerController : MonoBehaviour
             verticalVelocity -= gravity*Time.deltaTime;
         else
             verticalVelocity = 0f;
+
+        
         //verticalVelocity = Mathf.Max(verticalVelocity, -maxFallSpeed);
     }
 
@@ -170,24 +174,16 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerGage(float gage)
     {
-            Gage -= gage;   
-        
-            if( Gage > 100)
-        {
-            Gage = 100;
-        }
+        Gage -= gage;
+        UnityEngine.Debug.Log(Gage);
+        Gage = Mathf.Clamp(Gage, 0f, maxGauge);
     }
 
     public void PlayerCharge(float charge)
     {
         Gage += charge;
 
-        if (Gage > 100)
-        {
-            Gage = 100;
-        }
-
-
+        Gage = Mathf.Clamp(Gage, 0f, maxGauge);
     }
 
 
@@ -219,5 +215,10 @@ public class PlayerController : MonoBehaviour
         //controller.enabled = false;
         transform.position = position;
         //controller.enabled = true;
+    }
+
+    public void UpdateHealth()
+    {
+        UiHealthBar.Instance.SetValue(Gage/ (float)maxGauge);
     }
 }

@@ -56,7 +56,6 @@ public class Lift : MonoBehaviour
 
     public void ActivateLift()
     {
-        Debug.Log("Lift Activated");
         if (Vector3.Distance(transform.position, targetA.position) < 0.1f)
         {
             target = targetB;
